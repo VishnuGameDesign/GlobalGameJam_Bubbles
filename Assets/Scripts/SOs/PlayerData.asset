@@ -15,9 +15,10 @@ MonoBehaviour:
   <RunSpeed>k__BackingField: 10
   <TurnSpeed>k__BackingField: 50
   <JumpHeight>k__BackingField: 5
-  <GroundCheckMaxHeight>k__BackingField: 5
-  <RespawnZDistance>k__BackingField: 10
-  <MaxJumps>k__BackingField: 2
+  <GroundCheckMaxHeight>k__BackingField: 1
+  <RespawnZDistance>k__BackingField: 20
+  <RespawnTime>k__BackingField: 1
+  <MaxJumps>k__BackingField: 1
   <GroundLayer>k__BackingField:
     serializedVersion: 2
     m_Bits: 64

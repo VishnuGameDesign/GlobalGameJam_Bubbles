@@ -6,25 +6,24 @@ public class JoinPlayer : MonoBehaviour
 {
     private const int _maxPlayers = 2;
     private List<PlayerInput> _playerList = new List<PlayerInput>();
-    private PlayerInputManager _playerInputManager;
+
+    [field: SerializeField] public PlayerInputManager PlayerInputManager { get; private set; }
     
-    [SerializeField] private InputAction _joinAction;
     [SerializeField] private Color[] _playerColors = new Color[2];
     [SerializeField] private Transform[] _spawnLocation;
-    
-    private void Awake()
+
+    private void OnValidate()
     {
-        _playerColors[0] = Color.red;
-        _playerColors[1] = Color.blue;
-        
-        _joinAction.Enable();
+        if (PlayerInputManager == null)
+        {
+            PlayerInputManager = GetComponent<PlayerInputManager>();
+        }
     }
 
     private void Start()
     {
         _playerList.Clear();
-        _playerInputManager = GetComponent<PlayerInputManager>();
-        _playerInputManager.onPlayerJoined += OnJoin;
+        PlayerInputManager.onPlayerJoined += OnJoin;
     }
 
     private void OnJoin(PlayerInput playerInput)
@@ -36,36 +35,27 @@ public class JoinPlayer : MonoBehaviour
 
     private void TryJoin(PlayerInput playerInput)
     {
-        Camera playerCamera = GetComponentInChildren<Camera>();
-        
         if (_playerList.Count < _maxPlayers)
         {
             if (_playerList.Contains(playerInput) == false)
             {
                 _playerList.Add(playerInput);
             }
-
-            if (playerInput.playerIndex == 0)
-            {
-                playerCamera.rect = new Rect(0, 0, 1, 1);
-            }
-
-            if (playerInput.playerIndex == 1)
-            {
-                playerCamera.rect = new Rect(0, 0.5f, 1, 1);
-            }
         }
     }
 
     private void SpawnOnLocation(PlayerInput playerInput)
     {
-        playerInput.transform.position = _spawnLocation[_playerList.IndexOf(playerInput)].position;
+        int index = playerInput.playerIndex;
+        if (index >= 0 && index < _spawnLocation.Length)
+        {
+            playerInput.transform.position = _spawnLocation[index].position;
+        }
     }
 
     private void AssignColor(PlayerInput playerInput)
     {
         int playerIndex = playerInput.playerIndex;
-
         if (playerIndex >= 0 && playerIndex < _playerColors.Length)
         {
             if (playerInput.TryGetComponent(out Renderer renderer))

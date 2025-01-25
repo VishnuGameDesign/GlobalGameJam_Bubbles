@@ -18,8 +18,10 @@ public class PlayerController : MonoBehaviour
     private bool _isGrounded;
     private bool _isJumpPressed;
     private int _jumpCounter;
-    private bool _canMove = true;
 
+    public bool canMove = true;
+    public bool readyToRace;
+    
     #region SETUP
     private void OnValidate()
     {
@@ -27,44 +29,16 @@ public class PlayerController : MonoBehaviour
         if (PlayerCam == null) PlayerCam = GetComponentInChildren<Camera>();
         if(MeshRenderer == null) MeshRenderer = GetComponent<MeshRenderer>();
     }
-    
-    private void OnEnable()
-    {
-        OnCollided.OnInvoked.AddListener(PopBubble);
-    }
-    
-    private void OnDisable()
-    {
-        OnCollided.OnInvoked.RemoveListener(PopBubble);
-    }
-    #endregion
-
-    #region POP AND RESPAWN
-    private void PopBubble(bool value)
-    {
-        if (value)
-        {
-            ResetPosition();
-            Invoke("Respawn", PlayerData.RespawnTime);
-        }
-    }
-    private void ResetPosition()
-    {
-        _canMove = false;
-        MeshRenderer.enabled = false;
-        this.transform.position = transform.position - new Vector3(0, 0, PlayerData.RespawnZDistance);
-    }
-
-    private void Respawn()
-    {
-        MeshRenderer.enabled = true;
-        _canMove = true;
-    }   
     #endregion
 
     #region UPDATE
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            readyToRace = true;
+        }
+        
         if (Camera.main != null)
         {
             Vector3 right = PlayerCam.transform.right;
@@ -75,7 +49,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_canMove)
+        if (canMove && readyToRace)
         {
             Vector3 movement = _forwardVector * (PlayerData.RunSpeed * Time.fixedDeltaTime);
             Rigidbody.MovePosition(transform.position + movement);
@@ -127,8 +101,6 @@ public class PlayerController : MonoBehaviour
         return Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, PlayerData.GroundCheckMaxHeight,
             PlayerData.GroundLayer);
     }
-    
-
     #endregion
     
 }
