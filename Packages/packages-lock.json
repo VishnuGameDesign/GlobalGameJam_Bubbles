@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.qhenshaw.gameevents": {
+      "version": "https://github.com/qhenshaw/GameEvents.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "2c5532b8c77dbd2ae0266ef8d24e08f9d32a15c0"
+    },
     "com.unity.ai.navigation": {
       "version": "2.0.5",
       "depth": 0,
@@ -46,7 +53,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.rider": {
-      "version": "3.0.31",
+      "version": "3.0.34",
       "depth": 0,
       "source": "registry",
       "dependencies": {
