@@ -42,7 +42,7 @@ MonoBehaviour:
   Path: FMOD/GGJ_Bubbles/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638734966097479852
+  lastModified: 638735004997073927
   FileSizes:
   - Name: Desktop
     Value: 3565472
@@ -143,7 +143,7 @@ MonoBehaviour:
   Path: FMOD/GGJ_Bubbles/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638734966097518951
+  lastModified: 638735004997075513
   FileSizes:
   - Name: Desktop
     Value: 1202
@@ -179,7 +179,7 @@ MonoBehaviour:
   - {fileID: -7915277340592723070}
   StringsBanks:
   - {fileID: -2432490136635813376}
-  cacheTime: 638734966097518951
+  cacheTime: 638735004997075513
   cacheVersion: 131622
 --- !u!114 &807168794005335559
 MonoBehaviour:
