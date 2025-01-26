@@ -184,9 +184,10 @@ MonoBehaviour:
   <Rigidbody>k__BackingField: {fileID: 861835685026294382}
   <PlayerCam>k__BackingField: {fileID: 6972345960878154661}
   <PlayerData>k__BackingField: {fileID: 11400000, guid: af275b9ca87f94a21b66c02bd036a48a, type: 2}
-  <OnCollided>k__BackingField: {fileID: 11400000, guid: 476c839a4975941e1a89d03d86db0873, type: 2}
   <MeshRenderer>k__BackingField: {fileID: 136158748510238137}
+  <CanRaceNow>k__BackingField: {fileID: 11400000, guid: d399663d25a37426a9ff100f844c4269, type: 2}
   canMove: 1
+  readyToRace: 0
 --- !u!1 &3320254312857148966
 GameObject:
   m_ObjectHideFlags: 0

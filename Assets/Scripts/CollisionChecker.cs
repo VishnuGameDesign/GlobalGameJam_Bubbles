@@ -7,6 +7,7 @@ public class CollisionChecker : MonoBehaviour
     {
         if (other.collider.TryGetComponent(out PlayerController player))
         {
+            PopBubble(player);
             ResetPosition(player);
             StartCoroutine(RespawnRoutine(player));
         }

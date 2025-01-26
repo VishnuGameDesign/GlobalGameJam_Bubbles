@@ -1,3 +1,4 @@
+using System;
 using GameEvents;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -10,9 +11,9 @@ public class PlayerController : MonoBehaviour
     [field: SerializeField] public Rigidbody Rigidbody { get; private set; }
     [field: SerializeField] public Camera PlayerCam { get; private set; }     
     [field: SerializeField] public PlayerData PlayerData { get; private set; }     
-    [field: SerializeField] public BoolEventAsset OnCollided { get; private set; }
     [field: SerializeField] public MeshRenderer MeshRenderer { get; private set; }
-    
+    [field: SerializeField] public BoolEventAsset CanRaceNow { get; private set; }
+
     private Vector3 _forwardVector;
     private Vector2 _moveInput;
     private bool _isGrounded;
@@ -29,16 +30,27 @@ public class PlayerController : MonoBehaviour
         if (PlayerCam == null) PlayerCam = GetComponentInChildren<Camera>();
         if(MeshRenderer == null) MeshRenderer = GetComponent<MeshRenderer>();
     }
+
+    private void OnEnable()
+    {
+        CanRaceNow.OnInvoked.AddListener(BeginRace);
+    }
+
+    private void OnDisable()
+    {
+        CanRaceNow.OnInvoked.RemoveListener(BeginRace);
+    }
+
+    private void BeginRace(bool arg0)
+    {
+        readyToRace = true;
+    }
+
     #endregion
 
     #region UPDATE
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            readyToRace = true;
-        }
-        
         if (Camera.main != null)
         {
             Vector3 right = PlayerCam.transform.right;

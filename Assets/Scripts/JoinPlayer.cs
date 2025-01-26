@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using GameEvents;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,6 +10,7 @@ public class JoinPlayer : MonoBehaviour
 
     [field: SerializeField] public PlayerInputManager PlayerInputManager { get; private set; }
     
+    [SerializeField] private BoolEventAsset _allPlayersJoined;
     [SerializeField] private Color[] _playerColors = new Color[2];
     [SerializeField] private Transform[] _spawnLocation;
 
@@ -41,6 +43,11 @@ public class JoinPlayer : MonoBehaviour
             {
                 _playerList.Add(playerInput);
             }
+        }
+
+        if (_playerList.Count == _maxPlayers)
+        {
+            _allPlayersJoined.Invoke(true);
         }
     }
 
