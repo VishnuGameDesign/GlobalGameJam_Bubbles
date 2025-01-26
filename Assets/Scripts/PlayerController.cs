@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     [field: SerializeField] public PlayerData PlayerData { get; private set; }     
     [field: SerializeField] public BoolEventAsset CanRaceNow { get; private set; }
     [field: SerializeField] public LayerMask GroundLayer { get; private set; }
+    [SerializeField] public Vector3 _respawnPoint;
 
     [SerializeField] private EventReference _jumpSFX;
     [SerializeField] private EventReference _runSFX;
@@ -61,9 +62,9 @@ public class PlayerController : MonoBehaviour
             _forwardVector = Vector3.Cross(right, up);
         }
 
-        if (this.transform.position.y < -10)
+        if (this.transform.position.y < -100)
         {
-            transform.position = new Vector3(0, PlayerData.RespawnYDistance, PlayerData.RespawnZDistance);
+            transform.position = _respawnPoint;
         }
     }
 

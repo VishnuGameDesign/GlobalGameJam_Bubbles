@@ -122,6 +122,7 @@ MonoBehaviour:
   <GroundLayer>k__BackingField:
     serializedVersion: 2
     m_Bits: 64
+  _respawnPoint: {x: 10, y: -5, z: -117}
   _jumpSFX:
     Guid:
       Data1: -670022712
