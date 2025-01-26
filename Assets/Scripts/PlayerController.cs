@@ -89,6 +89,7 @@ public class PlayerController : MonoBehaviour
     private void TryJump()
     {
         _isGrounded = CheckGrounded();
+        Debug.Log(_isGrounded);
         
         if (_isGrounded)
         {
@@ -109,10 +110,17 @@ public class PlayerController : MonoBehaviour
     private bool CheckGrounded()
     {
         Debug.DrawRay(transform.position, Vector3.down * PlayerData.GroundCheckMaxHeight, Color.red); // DEBUG
-        
         return Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, PlayerData.GroundCheckMaxHeight,
             PlayerData.GroundLayer);
     }
     #endregion
-    
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.collider.TryGetComponent(out PlayerController otherPlayer))
+        {
+            Rigidbody otherRigidbody = otherPlayer.Rigidbody;
+            otherRigidbody.AddForce(Vector3.up * PlayerData.PunchForce, ForceMode.Impulse);
+        }
+    }
 }

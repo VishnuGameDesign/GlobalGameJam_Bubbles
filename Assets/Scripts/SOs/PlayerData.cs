@@ -10,6 +10,7 @@ public class PlayerData : ScriptableObject
     [field: SerializeField] public float GroundCheckMaxHeight { get; private set; } = 5f;
     [field: SerializeField] public float RespawnZDistance { get; private set; } = 5f;
     [field: SerializeField] public float RespawnTime { get; private set; } = 5f;
+    [field: SerializeField] public float PunchForce { get; private set; } = 5f;
     [field: SerializeField] public int MaxJumps { get; private set; } = 2;
     [field: SerializeField] public LayerMask GroundLayer { get; private set; }
 }

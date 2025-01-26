@@ -5,13 +5,13 @@ using UnityEngine.InputSystem;
 
 public class JoinPlayer : MonoBehaviour
 {
-    private const int _maxPlayers = 2;
+    private const int MaxPlayers = 2;
     private List<PlayerInput> _playerList = new List<PlayerInput>();
 
     [field: SerializeField] public PlayerInputManager PlayerInputManager { get; private set; }
     
     [SerializeField] private BoolEventAsset _allPlayersJoined;
-    [SerializeField] private GameObject[] _players = new GameObject[2];
+    [SerializeField] private GameObject[] _playerModels = new GameObject[2];
     [SerializeField] private Transform[] _spawnLocation;
 
     private void OnValidate()
@@ -31,13 +31,13 @@ public class JoinPlayer : MonoBehaviour
     private void OnJoin(PlayerInput playerInput)
     {
         TryJoin(playerInput);
-        AssignColor(playerInput);
+        AssignModel(playerInput);
         SpawnOnLocation(playerInput);
     }
 
     private void TryJoin(PlayerInput playerInput)
     {
-        if (_playerList.Count < _maxPlayers)
+        if (_playerList.Count < MaxPlayers)
         {
             if (_playerList.Contains(playerInput) == false)
             {
@@ -45,12 +45,30 @@ public class JoinPlayer : MonoBehaviour
             }
         }
 
-        if (_playerList.Count == _maxPlayers)
+        if (_playerList.Count == MaxPlayers)
         {
             _allPlayersJoined.Invoke(true);
         }
     }
 
+    private void AssignModel(PlayerInput playerInput)
+    {
+        int playerIndex = playerInput.playerIndex;
+        if (playerIndex >= 0 && playerIndex < _playerModels.Length)
+        {
+            if (playerInput.transform.childCount > 0)
+            {
+                Transform firstChild = playerInput.transform.GetChild(0);
+                Destroy(firstChild.gameObject);
+            }
+            
+            GameObject model = Instantiate(_playerModels[playerIndex], playerInput.transform);
+            model.transform.localPosition = Vector3.zero;
+            model.transform.localRotation = Quaternion.identity;
+            model.transform.SetParent(playerInput.transform);
+        }
+    }
+    
     private void SpawnOnLocation(PlayerInput playerInput)
     {
         int index = playerInput.playerIndex;
@@ -60,19 +78,4 @@ public class JoinPlayer : MonoBehaviour
         }
     }
 
-    private void AssignColor(PlayerInput playerInput)
-    {
-        int playerIndex = playerInput.playerIndex;
-        if (playerIndex >= 0 && playerIndex < _players.Length)
-        {
-            if (playerInput.TryGetComponent(out PlayerController player))
-            {
-                Instantiate(_players[playerIndex], player.transform);
-            }
-            else
-            {
-                Debug.LogError($"Player {playerInput.playerIndex} does not have a renderer");
-            }
-        }
-    }
 }
