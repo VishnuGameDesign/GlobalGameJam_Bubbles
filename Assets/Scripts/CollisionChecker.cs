@@ -1,9 +1,11 @@
 using System.Collections;
+using FMODUnity;
 using UnityEngine;
 
 public class CollisionChecker : MonoBehaviour
 {
     private PlayerController player;
+    [SerializeField] private EventReference _popSFX;
 
     private void OnCollisionEnter(Collision other)
     {
@@ -22,6 +24,10 @@ public class CollisionChecker : MonoBehaviour
     private void PopBubble(PlayerController player)
     {
         //TODO: POP VFX
+        if (!_popSFX.IsNull)
+        {
+            RuntimeManager.PlayOneShot(_popSFX, this.player.transform.position);
+        }
         player.GetComponentInChildren<MeshRenderer>().enabled = false;
     }
     private void ResetPosition(PlayerController player)

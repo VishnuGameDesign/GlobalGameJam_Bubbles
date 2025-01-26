@@ -124,6 +124,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 905240dc96f8e44079c6c31101c646e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _popSFX:
+    Guid:
+      Data1: 1270366325
+      Data2: 1293994594
+      Data3: -335805053
+      Data4: 1608376685
+    Path: event:/Bubble pop
 --- !u!1 &1120594571794235464
 GameObject:
   m_ObjectHideFlags: 0
