@@ -2331,11 +2331,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bgm:
     Guid:
-      Data1: 2095208481
-      Data2: 1280607017
-      Data3: 154173369
-      Data4: -305339807
-    Path: event:/Beach_Sea amb
+      Data1: 35901796
+      Data2: 1159079548
+      Data3: 1273004692
+      Data4: 850365777
+    Path: event:/run bubble run BG Music
 --- !u!4 &1377493174
 Transform:
   m_ObjectHideFlags: 0
