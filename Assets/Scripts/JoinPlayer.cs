@@ -11,7 +11,7 @@ public class JoinPlayer : MonoBehaviour
     [field: SerializeField] public PlayerInputManager PlayerInputManager { get; private set; }
     
     [SerializeField] private BoolEventAsset _allPlayersJoined;
-    [SerializeField] private Color[] _playerColors = new Color[2];
+    [SerializeField] private GameObject[] _players = new GameObject[2];
     [SerializeField] private Transform[] _spawnLocation;
 
     private void OnValidate()
@@ -63,11 +63,11 @@ public class JoinPlayer : MonoBehaviour
     private void AssignColor(PlayerInput playerInput)
     {
         int playerIndex = playerInput.playerIndex;
-        if (playerIndex >= 0 && playerIndex < _playerColors.Length)
+        if (playerIndex >= 0 && playerIndex < _players.Length)
         {
-            if (playerInput.TryGetComponent(out Renderer renderer))
+            if (playerInput.TryGetComponent(out PlayerController player))
             {
-                renderer.material.SetColor("_BaseColor", _playerColors[playerIndex]);
+                Instantiate(_players[playerIndex], player.transform);
             }
             else
             {
