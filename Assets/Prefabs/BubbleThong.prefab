@@ -218,7 +218,7 @@ GameObject:
   - component: {fileID: 434995968931909971}
   - component: {fileID: 8113121900736106595}
   m_Layer: 0
-  m_Name: BubbleBODY
+  m_Name: BubbleThong
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

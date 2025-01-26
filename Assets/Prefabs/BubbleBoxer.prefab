@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 7720504090809626296}
   - component: {fileID: 4850350865242957515}
   m_Layer: 0
-  m_Name: BubbleBODYboxer
+  m_Name: BubbleBoxer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
