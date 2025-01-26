@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using GameEvents;
 using UnityEngine;
@@ -12,13 +13,22 @@ public class JoinPlayer : MonoBehaviour
     
     [SerializeField] private BoolEventAsset _allPlayersJoined;
     [SerializeField] private GameObject[] _playerModels = new GameObject[2];
+    [SerializeField] private GameObject[] _playerUIModels = new GameObject[2];
     [SerializeField] private Transform[] _spawnLocation;
-
+    
     private void OnValidate()
     {
         if (PlayerInputManager == null)
         {
             PlayerInputManager = GetComponent<PlayerInputManager>();
+        }
+    }
+
+    private void Awake()
+    {
+        foreach (var uiModels in _playerUIModels)
+        {
+            uiModels.SetActive(false);
         }
     }
 
@@ -74,6 +84,10 @@ public class JoinPlayer : MonoBehaviour
         int index = playerInput.playerIndex;
         if (index >= 0 && index < _spawnLocation.Length)
         {
+            if (_playerUIModels[index] != null)
+            {
+                _playerUIModels[index].SetActive(true);
+            }
             playerInput.transform.position = _spawnLocation[index].position;
         }
     }

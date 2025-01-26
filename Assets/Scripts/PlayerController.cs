@@ -1,4 +1,4 @@
-using System;
+using FMODUnity;
 using GameEvents;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -11,8 +11,11 @@ public class PlayerController : MonoBehaviour
     [field: SerializeField] public Rigidbody Rigidbody { get; private set; }
     [field: SerializeField] public Camera PlayerCam { get; private set; }     
     [field: SerializeField] public PlayerData PlayerData { get; private set; }     
-    [field: SerializeField] public MeshRenderer MeshRenderer { get; private set; }
     [field: SerializeField] public BoolEventAsset CanRaceNow { get; private set; }
+    [field: SerializeField] public LayerMask GroundLayer { get; private set; }
+
+    [SerializeField] private EventReference _jumpSFX;
+    [SerializeField] private EventReference _runSFX;
 
     private Vector3 _forwardVector;
     private Vector2 _moveInput;
@@ -28,7 +31,6 @@ public class PlayerController : MonoBehaviour
     {
         if (Rigidbody == null) Rigidbody = GetComponent<Rigidbody>();
         if (PlayerCam == null) PlayerCam = GetComponentInChildren<Camera>();
-        if(MeshRenderer == null) MeshRenderer = GetComponent<MeshRenderer>();
     }
 
     private void OnEnable()
@@ -51,11 +53,17 @@ public class PlayerController : MonoBehaviour
     #region UPDATE
     private void Update()
     {
+        Debug.Log(GroundLayer.ToString());
         if (Camera.main != null)
         {
             Vector3 right = PlayerCam.transform.right;
             Vector3 up = Vector3.up;
             _forwardVector = Vector3.Cross(right, up);
+        }
+
+        if (this.transform.position.y < -10)
+        {
+            transform.position = new Vector3(0, PlayerData.RespawnYDistance, PlayerData.RespawnZDistance);
         }
     }
 
@@ -88,8 +96,7 @@ public class PlayerController : MonoBehaviour
     #region JUMP & GROUNDCHECK
     private void TryJump()
     {
-        _isGrounded = CheckGrounded();
-        Debug.Log(_isGrounded);
+        CheckGrounded();
         
         if (_isGrounded)
         {
@@ -105,13 +112,18 @@ public class PlayerController : MonoBehaviour
     private void Jump()
     {
         Rigidbody.AddForce(Vector3.up * PlayerData.JumpHeight, ForceMode.Impulse);
+        RuntimeManager.PlayOneShot(_jumpSFX, transform.position);
     }
     
-    private bool CheckGrounded()
+    private void CheckGrounded()
     {
         Debug.DrawRay(transform.position, Vector3.down * PlayerData.GroundCheckMaxHeight, Color.red); // DEBUG
-        return Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, PlayerData.GroundCheckMaxHeight,
-            PlayerData.GroundLayer);
+        
+        if(Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, PlayerData.GroundCheckMaxHeight, GroundLayer))
+        {
+            _isGrounded = true;
+        }
+        _isGrounded = false;
     }
     #endregion
 

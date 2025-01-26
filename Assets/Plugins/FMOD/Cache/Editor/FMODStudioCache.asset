@@ -1,5 +1,153 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8878816462604438516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/shovel Forth
+  m_EditorClassIdentifier: 
+  Path: event:/shovel Forth
+  Guid:
+    Data1: -221608386
+    Data2: 1306623999
+    Data3: 816547494
+    Data4: -176887883
+  Banks:
+  - {fileID: -7915277340592723070}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1956
+--- !u!114 &-7915277340592723070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/GGJ_Bubbles/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 638734966097479852
+  FileSizes:
+  - Name: Desktop
+    Value: 3565472
+  Exists: 1
+--- !u!114 &-7425002762263866316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Bubble Jump
+  m_EditorClassIdentifier: 
+  Path: event:/Bubble Jump
+  Guid:
+    Data1: -670022712
+    Data2: 1163518859
+    Data3: -2087952255
+    Data4: 1947366147
+  Banks:
+  - {fileID: -7915277340592723070}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 313
+--- !u!114 &-4325101231150256085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Cheering
+  m_EditorClassIdentifier: 
+  Path: event:/Cheering
+  Guid:
+    Data1: 259635611
+    Data2: 1124194865
+    Data3: -31227205
+    Data4: -506009235
+  Banks:
+  - {fileID: -7915277340592723070}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 25271
+--- !u!114 &-4112124231655666643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Moving on sand
+  m_EditorClassIdentifier: 
+  Path: event:/Moving on sand
+  Guid:
+    Data1: 61507960
+    Data2: 1265476414
+    Data3: 1259885757
+    Data4: -2016433979
+  Banks:
+  - {fileID: -7915277340592723070}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 14093
+--- !u!114 &-2432490136635813376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/GGJ_Bubbles/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638734966097518951
+  FileSizes:
+  - Name: Desktop
+    Value: 1202
+  Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12,10 +160,186 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
-  EditorBanks: []
-  EditorEvents: []
+  EditorBanks:
+  - {fileID: -2432490136635813376}
+  - {fileID: -7915277340592723070}
+  EditorEvents:
+  - {fileID: 3062667370382409923}
+  - {fileID: -8878816462604438516}
+  - {fileID: 6417043522711423403}
+  - {fileID: 3441681111494562781}
+  - {fileID: 807168794005335559}
+  - {fileID: -4112124231655666643}
+  - {fileID: 9101644098726525422}
+  - {fileID: -4325101231150256085}
+  - {fileID: -7425002762263866316}
+  - {fileID: 3098529911259437605}
   EditorParameters: []
-  MasterBanks: []
-  StringsBanks: []
-  cacheTime: 0
+  MasterBanks:
+  - {fileID: -7915277340592723070}
+  StringsBanks:
+  - {fileID: -2432490136635813376}
+  cacheTime: 638734966097518951
   cacheVersion: 131622
+--- !u!114 &807168794005335559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/shovel back
+  m_EditorClassIdentifier: 
+  Path: event:/shovel back
+  Guid:
+    Data1: 803894389
+    Data2: 1225327915
+    Data3: -574464379
+    Data4: -964444485
+  Banks:
+  - {fileID: -7915277340592723070}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1956
+--- !u!114 &3062667370382409923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Beach_Sea amb
+  m_EditorClassIdentifier: 
+  Path: event:/Beach_Sea amb
+  Guid:
+    Data1: 2095208481
+    Data2: 1280607017
+    Data3: 154173369
+    Data4: -305339807
+  Banks:
+  - {fileID: -7915277340592723070}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 104347
+--- !u!114 &3098529911259437605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player hit bounce
+  m_EditorClassIdentifier: 
+  Path: event:/Player hit bounce
+  Guid:
+    Data1: 1171023322
+    Data2: 1096763413
+    Data3: 438504381
+    Data4: -1162668021
+  Banks:
+  - {fileID: -7915277340592723070}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 869
+--- !u!114 &3441681111494562781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Bubble pop
+  m_EditorClassIdentifier: 
+  Path: event:/Bubble pop
+  Guid:
+    Data1: 1270366325
+    Data2: 1293994594
+    Data3: -335805053
+    Data4: 1608376685
+  Banks:
+  - {fileID: -7915277340592723070}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 70
+--- !u!114 &6417043522711423403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/run bubble run BG Music
+  m_EditorClassIdentifier: 
+  Path: event:/run bubble run BG Music
+  Guid:
+    Data1: 35901796
+    Data2: 1159079548
+    Data3: 1273004692
+    Data4: 850365777
+  Banks:
+  - {fileID: -7915277340592723070}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 104347
+--- !u!114 &9101644098726525422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/shovel back and forth
+  m_EditorClassIdentifier: 
+  Path: event:/shovel back and forth
+  Guid:
+    Data1: 1285077650
+    Data2: 1251981963
+    Data3: 212593575
+    Data4: 939577318
+  Banks:
+  - {fileID: -7915277340592723070}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1956

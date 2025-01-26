@@ -12,14 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea7ae157db94343698fac6bc9ebee0f1, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  <RunSpeed>k__BackingField: 10
+  <RunSpeed>k__BackingField: 5
   <TurnSpeed>k__BackingField: 50
   <JumpHeight>k__BackingField: 5
-  <GroundCheckMaxHeight>k__BackingField: 2
-  <RespawnZDistance>k__BackingField: 20
+  <GroundCheckMaxHeight>k__BackingField: 0.31
+  <RespawnZDistance>k__BackingField: 10
+  <RespawnYDistance>k__BackingField: -2
   <RespawnTime>k__BackingField: 1
   <PunchForce>k__BackingField: 10
-  <MaxJumps>k__BackingField: 1
-  <GroundLayer>k__BackingField:
-    serializedVersion: 2
-    m_Bits: 64
+  <MaxJumps>k__BackingField: 100

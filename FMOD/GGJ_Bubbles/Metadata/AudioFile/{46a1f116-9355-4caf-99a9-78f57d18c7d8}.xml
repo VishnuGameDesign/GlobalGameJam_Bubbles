@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{46a1f116-9355-4caf-99a9-78f57d18c7d8}">
+		<property name="assetPath">
+			<value>Bubble pop.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.070000000000000007</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{ef2da501-bd05-4718-b8f4-ba5b2fd91f6a}</destination>
+		</relationship>
+	</object>
+</objects>

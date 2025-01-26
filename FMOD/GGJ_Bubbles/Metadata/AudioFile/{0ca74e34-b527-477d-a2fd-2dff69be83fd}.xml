@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{0ca74e34-b527-477d-a2fd-2dff69be83fd}">
+		<property name="assetPath">
+			<value>shovel back.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.956530612244898</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{ef2da501-bd05-4718-b8f4-ba5b2fd91f6a}</destination>
+		</relationship>
+	</object>
+</objects>

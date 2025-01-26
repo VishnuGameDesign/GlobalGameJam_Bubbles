@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{72359d50-d8c3-4379-8c1e-a3dfc509bde7}">
+		<property name="assetPath">
+			<value>Shovel back and forth.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.956530612244898</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{ef2da501-bd05-4718-b8f4-ba5b2fd91f6a}</destination>
+		</relationship>
+	</object>
+</objects>

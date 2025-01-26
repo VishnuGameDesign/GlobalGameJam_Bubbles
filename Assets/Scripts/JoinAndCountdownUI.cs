@@ -11,9 +11,10 @@ public class JoinAndCountdownUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _countdownText;
     [SerializeField] private BoolEventAsset _allPlayersReadyToRace;
     [SerializeField] private BoolEventAsset _canRaceNow;
+    [SerializeField] private string _raceTXT;
 
     private bool _isReadyToRace;
-
+    
     private void Start()
     {
         _panel.SetActive(true);
@@ -56,7 +57,7 @@ public class JoinAndCountdownUI : MonoBehaviour
             _countdownText.text = i.ToString();
             yield return new WaitForSeconds(1f);
         }
-        _countdownText.text = "RACE!!!";
+        _countdownText.text = _raceTXT;
         Invoke("DisableCountdownText", 0.5f);
     }
 
